@@ -1,12 +1,9 @@
-
 const params = new URLSearchParams(window.location.search);
 const post = params.get("post");
 
 const article = document.querySelector("#article");
 
-const allowedPosts = [
-  "talk-about-it",
-];
+const allowedPosts = ["talk-about-it"];
 
 if (!post || !allowedPosts.includes(post)) {
   article.textContent = "Article not found.";
@@ -15,6 +12,5 @@ if (!post || !allowedPosts.includes(post)) {
 
   article.setAttribute("src", markdownPath);
 
-  document.title = `${post} | My Blog`;
+  document.title = `${post} | Duy's blog`;
 }
-
