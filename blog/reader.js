@@ -1,13 +1,20 @@
+
 const params = new URLSearchParams(window.location.search);
 const post = params.get("post");
 
 const article = document.querySelector("#article");
 
-const allowedPosts = ["javascript", "tailwind", "dotnet"];
+const allowedPosts = [
+  "talk-about-it",
+];
 
-if (allowedPosts.includes(post)) {
-  article.setAttribute("src", `./posts/${post}.md`);
-  document.title = `${post} | My Blog`;
+if (!post || !allowedPosts.includes(post)) {
+  article.textContent = "Article not found.";
 } else {
-  article.textContent = "Article not found";
+  const markdownPath = `./posts/${post}.md`;
+
+  article.setAttribute("src", markdownPath);
+
+  document.title = `${post} | My Blog`;
 }
+
